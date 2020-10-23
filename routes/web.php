@@ -24,3 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'MyController@home')->name('homepage');
 Route::get('about', 'MyController@about')->name('aboutpage');
 Route::get('contact', 'MyController@contact')->name('contactpage');
+
+// Working with data in blade file
+Route::get('service', 'MainController@service')->name('servicepage');
+
+// CRUD for student table
+Route::resource('student','StudentController'); // resource (get/ post/ put/ delete)

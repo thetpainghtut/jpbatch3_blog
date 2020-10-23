@@ -1,0 +1,32 @@
+=> Working with Data
+  - create model and migration
+  - add columns into migration
+  - add fillable into model
+  - create database in phpmyadmin
+  - config database in .env
+  - restart serve
+  - migrate
+
+=> CRUD (Create , Read, Update, Delete)
+  1. show form (inputs) => 
+  2. store into table -> process (post)
+
+  3. show datas with table (All) => get (DONE)
+  4 show related data with custom ui => 
+
+  5. show form with old value  => 
+  6. update data in table -> process (put)
+
+  7. delete related data -> process (delete)
+
+=> CRUD Process Coding
+  - route (resource) // 7 (get, post, put, delete)
+  - controller (resource, connect related model class)
+  - call route list
+  - show all datas
+    - index
+    - Student::all()
+    - dd
+    - return view -> compact()
+  - create blades
+    - folder (group)
