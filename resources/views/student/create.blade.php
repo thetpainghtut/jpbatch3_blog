@@ -34,7 +34,12 @@
             </div>
             <div class="col-md-6">
               <label>Name:</label>
-              <input type="text" name="name" class="form-control">
+              <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
+              @error('name')
+                <span class="invalid-feedback small" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
 

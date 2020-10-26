@@ -46,6 +46,9 @@ class StudentController extends Controller
             "email"  => 'required|unique:students',
             "phoneno" => 'required',
             "address" => 'required'
+        ],
+        [
+            "name.required" => 'နာမည်ဖြည့်စွက်ပေးပါ'
         ]);
         
         // Object Relational Mapping (Eloquent ORM)
