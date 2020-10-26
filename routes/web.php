@@ -29,4 +29,4 @@ Route::get('contact', 'MyController@contact')->name('contactpage');
 Route::get('service', 'MainController@service')->name('servicepage');
 
 // CRUD for student table
-Route::resource('student','StudentController'); // resource (get/ post/ put/ delete)
+Route::resource('student','StudentController'); // resource (get - / post/ put/ delete)

@@ -47,6 +47,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('contactpage')}}">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('student.index')}}">Student List</a>
+          </li>
         </ul>
       </div>
     </div>

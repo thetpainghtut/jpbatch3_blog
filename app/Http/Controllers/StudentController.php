@@ -26,7 +26,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -37,7 +37,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->name);
+
+        // Validation
+        $request->validate([
+            "rollno" => 'required|min:5|unique:students',
+            "name" => 'required',
+            "email"  => 'required|unique:students',
+            "phoneno" => 'required',
+            "address" => 'required'
+        ]);
+        
+        // Object Relational Mapping (Eloquent ORM)
+        $student = new Student;
+        $student->rollno = $request->rollno;
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->phoneno = $request->phoneno;
+        $student->address = $request->address;
+        $student->save();
+
+        return redirect()->route('student.index');
     }
 
     /**
@@ -80,8 +100,9 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Student $student) // ORM
     {
-        //
+        $student->delete(); 
+        return redirect()->route('student.index');
     }
 }
