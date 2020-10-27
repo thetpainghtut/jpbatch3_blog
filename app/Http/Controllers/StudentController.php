@@ -71,7 +71,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('student.show',compact('student'));
     }
 
     /**
@@ -82,7 +82,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('student.edit',compact('student'));
     }
 
     /**
@@ -94,7 +94,40 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        // dd($request->name);
+
+        // Validation
+        // if ($student->email == $request->email && $student->rollno == $request->rollno) {
+        //     $request->validate([
+        //         "name" => 'required',
+        //         "phoneno" => 'required',
+        //         "address" => 'required'
+        //     ],
+        //     [
+        //         "name.required" => 'နာမည်ဖြည့်စွက်ပေးပါ'
+        //     ]);
+        // }else{
+            $request->validate([
+                "rollno" => 'required|min:5|unique:students,rollno,'.$student->id,
+                "name" => 'required',
+                "email"  => 'required|unique:students,email,'.$student->id,
+                "phoneno" => 'required',
+                "address" => 'required'
+            ],
+            [
+                "name.required" => 'နာမည်ဖြည့်စွက်ပေးပါ'
+            ]);
+        // }
+        
+        // Object Relational Mapping (Eloquent ORM)
+        $student->rollno = $request->rollno;
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->phoneno = $request->phoneno;
+        $student->address = $request->address;
+        $student->save();
+
+        return redirect()->route('student.index');
     }
 
     /**

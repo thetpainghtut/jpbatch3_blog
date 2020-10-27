@@ -30,3 +30,18 @@
     - return view -> compact()
   - create blades
     - folder (group)
+
+=> Relationships
+
+  - Item Management
+    - items
+    - categories
+    - subcategories
+    - brands
+
+  - Order Mangament
+    - orders
+    - orderdetails (order_id, item_id)
+
+
+
